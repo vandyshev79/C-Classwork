@@ -14,14 +14,22 @@ int num2 = Convert.ToInt32(Console.ReadLine());
 // num1 = temp;
 // }
 
-int Ostatok = num1 % num2;
-
-if(Ostatok == 0)
+if(num2 == 0)
 {
-Console.WriteLine("Да");
+    Console.WriteLine("На ноль делить нельзя!!!");
 }
 else
 {
-Console.WriteLine($"Нет, Остаток= {Ostatok}");
+    int Ostatok = num1 % num2;
+
+    if(Ostatok == 0)
+    {
+    Console.WriteLine("Да");
+    }
+    else
+    {
+    Console.WriteLine($"Нет, Остаток= {Ostatok}");
+    }
 }
+
 // Блок позволяет перевернуть местами числа. Например, если введём 8 и 16 без блока, то будет не правильно, а с этим блоком поставит правильно 16 8.
