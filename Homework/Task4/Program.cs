@@ -9,4 +9,13 @@ if (num.Length == 1)
 {
     Console.WriteLine(num);
 }
-
+else
+{
+    int l = num.Length;
+    int i = 0;
+    while (i < num.Lenght)
+    {
+        
+    }
+    Console.WriteLine(l);
+}
