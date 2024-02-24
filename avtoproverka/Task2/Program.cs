@@ -23,3 +23,18 @@ if(thirdNumber > max)
 }
 
 Console.WriteLine("max = " + max);   
+
+// int FindMax = 0;
+// if(a > FindMax)              Решение для метода main класса Answer
+// {
+//     FindMax = a;
+// }
+// if(b > FindMax)
+// {
+//     FindMax = b;
+// }
+// if(c > FindMax)
+// {
+//     FindMax = c;
+// }
+// return FindMax;
