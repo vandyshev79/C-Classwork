@@ -47,7 +47,7 @@ int n = Convert.ToInt32(Console.ReadLine());
 int[] mas = Random_mas(new int[n]);
 Print_mas(mas);
 Console.WriteLine();
-Console.WriteLine($"{num_count(mas)} совпадения(ий). Это число {Random_mas(mas)}" );
+Console.WriteLine($"{num_count(mas)} совпадения(ий). Это число ");
 
 
 // for (int i = 0; i < 10; i++)
