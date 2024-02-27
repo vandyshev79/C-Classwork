@@ -6,6 +6,7 @@
 // [1 3 4 19 3] => 2
 // [4 3 4 1 9 5 21 13]  => 3
 
+// Console.Clear();
 Console.Clear();
 
 int[] Random_mas(int[] mas)
@@ -62,5 +63,5 @@ int n = Convert.ToInt32(Console.ReadLine());
 
 int[] mas = Random_mas(new int[n]);
 Print_mas(mas);
-
-Console.WriteLine(Count(mas));
+Console.WriteLine();
+Console.WriteLine($"{Count(mas)} простых чисел в массиве");
