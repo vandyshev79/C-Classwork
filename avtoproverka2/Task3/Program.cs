@@ -21,7 +21,6 @@ class UserInputToCompileForTest
             if (numbers[i] < FindMin)
             {
                 FindMin = numbers[i];
-                i++;
             }
         }
         return FindMin;
@@ -37,7 +36,6 @@ class UserInputToCompileForTest
             if (numbers[j] > FindMax)
             {
                 FindMax = numbers[j];
-                j++;
             }
         }
         return FindMax;
