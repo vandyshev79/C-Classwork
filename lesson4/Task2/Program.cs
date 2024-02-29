@@ -5,7 +5,7 @@
 
 
 
-int[,] CreateMatrix(int rowCount, int columsCount)
+int[,] CreateMatrix(int rowCount, int columsCount)  // Создаём двумерный массив
 {
     int[,] matrix = new int[rowCount, columsCount];
     Random rnd = new Random();
@@ -19,7 +19,7 @@ int[,] CreateMatrix(int rowCount, int columsCount)
     return matrix;
 }
 
-bool ToInteresting(int value)
+bool ToInteresting(int value)                       // Узнаём, сумма чисел чётная или нет
 {
     int sumOfDigits = GetSumOfDigits(value);
     if (sumOfDigits % 2 == 0)
@@ -29,7 +29,7 @@ bool ToInteresting(int value)
     return false;
 }
 
-int GetSumOfDigits(int value)
+int GetSumOfDigits(int value)                       // Находим сумму чисел
 {
     int sum = 0;
     while (value > 0)
@@ -41,7 +41,7 @@ int GetSumOfDigits(int value)
 }
 
 
-void ShowMatrix(int[,] matrix)
+void ShowMatrix(int[,] matrix)                      // Создаём вывод
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
