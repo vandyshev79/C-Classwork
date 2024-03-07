@@ -10,7 +10,7 @@
 
 */
 
-void PrintArr(int[,] array)                                 
+void PrintArr(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -31,7 +31,7 @@ int[,] RandomDoubleArray(int m, int n)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(1, 10);
+            array[i, j] = new Random().Next(10, 100);
         }
     }
     return array;
@@ -39,51 +39,69 @@ int[,] RandomDoubleArray(int m, int n)
 }
 
 
-int[,] FindElementByPosition(int[,] array, int x, int y)
-{
-    int[,] array2 = new int[x, y];
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (array[i, j] == x && array[i, j] == y)
-            {
-                array2[x, y] = array[i, j];
-            }
-                Console.WriteLine("{array2[x, y}");
-        }
-    }
-    return array2;
-}
+//int[,] FindElementByPosition(int[,] array, int x, int y)
+//{
+//    int[,] array = new int[x, y];
+//    for (int i = 0; i < array.GetLength(0); i++)
+//    {
+//        for (int j = 0; j < array.GetLength(1); j++)
+//        {
+//            if(x > 0 && y > 0)
+//            {
+//                array[x, y] == array[x - 1, y - 1];
+//            }
+//            else Console.WriteLine("Неверные координаты.");
+//        }
+//        return array;
+//    }
 
 
 bool ValidatePosition(int[,] array, int x, int y)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        if (array.GetLength(0) < x)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.WriteLine("Позиция по рядам выходит за пределы массива");
-            return false;
-        }
-        if (array.GetLength(1) < y)
-        {
-            Console.WriteLine("Позиция по колонкам выходит за пределы массива");
-            return false;
+            if (array.GetLength(0) < x && array.GetLength(1) < y)
+            {
+                Console.WriteLine("Позиция по рядам и колонкам выходит за пределы массива");
+                Console.WriteLine();
+                return false;
+            }
+            if (array.GetLength(0) < x)
+            {
+                Console.WriteLine("Позиция по рядам выходит за пределы массива");
+                Console.WriteLine();
+                return false;
+            }
+            if (array.GetLength(1) < y)
+            {
+                Console.WriteLine("Позиция по колонкам выходит за пределы массива");
+                Console.WriteLine();
+                return false;
+            }
+            if (x == 0 && y == 0)
+            {
+                Console.WriteLine("Неправильные координаты");
+                Console.WriteLine();
+                return false;
+
+            }
         }
     }
-
-
-}
-return true;
+    return true;
 }
 
 
-//void PrintResult(int[,] arrayCoordinates, int x, int y)
+//void PrintResult(int[,] array, int x, int y)
 //{
-//        Console.WriteLine("FindElementByPosition {arrayCoordinates}");
+//    foreach (var item in array)
+//    {
+//        if (item == array[x, y])
+//        {
+//            Console.Write(FindElementByPosition(item));
+//        }
+//    }
 //}
 
 
@@ -101,9 +119,20 @@ PrintArr(array);
 Console.WriteLine();
 
 Console.Write("Введите координату Х: ");
-int x =  Convert.ToInt32(Console.ReadLine());
+int x = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите координату Y: ");
 int y = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
-var result = ValidatePosition(array, x, y);
-FindElementByPosition(array, x, y);
+ValidatePosition(array, x, y);
+
+
+
+
+if (x > 0 && y > 0 && x <= array.GetLength(0) && y <= array.GetLength(1))
+{
+    Console.WriteLine(array[x - 1, y - 1]);
+}
+else Console.WriteLine();
+Console.WriteLine();
+
+
