@@ -93,7 +93,7 @@ bool ValidatePosition(int[,] array, int x, int y)
 }
 
 
-//void PrintResult(int[,] array, int x, int y)
+//void PrintResult(int[,] numbers, int x, int y)
 //{
 //    foreach (var item in array)
 //    {
