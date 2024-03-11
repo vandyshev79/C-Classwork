@@ -41,7 +41,8 @@ int[,] RandomDoubleArray(int m, int n)
 
 int[,] FindElementByPosition(int[,] array, int x, int y)
 {
-    return array[x - 1, y - 1]; 
+    array[x, y] = array[x - 1, y - 1];
+    return array;
 }
 
 
@@ -86,7 +87,6 @@ Console.Write("Введите координату Y: ");
 int y = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
 bool ValidateResult = ValidatePosition(array, x, y);
-
 int[,] numbers = FindElementByPosition(array, x, y);
 PrintResult(numbers, x, y);
 

@@ -10,129 +10,108 @@
 
 */
 
-void PrintArr(int[,] array)
+using System;
+
+//Тело класса будет написано студентом. Класс обязан иметь статический метод PrintResult()
+class UserInputToCompileForTest
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    // Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+    // Поиск элемента по позициям
+    public static int FindElementByPosition(int[,] array, int x, int y)
     {
-        Console.WriteLine();
-        for (int j = 0; j < array.GetLength(1); j++)
+        return array[x - 1, y - 1];
+    }
+
+    // Проверка позиций на вхождение в массив
+    public static bool ValidatePosition(int[,] array, int x, int y)
+    {
+        if (array.GetLength(0) < x || array.GetLength(1) < y)
         {
-            Console.Write($"{array[i, j]}\t");
+            return false;
         }
-        Console.WriteLine();
+        else
+        {
+            return true;
+        }
+
+    }
+
+    public static void PrintResult(int[,] numbers, int x, int y)
+    {
+        if (!ValidatePosition(numbers, x, y))
+        {
+            Console.Write("Позиция по рядам выходит за пределы массива");
+
+        }
+        Console.WriteLine(FindElementByPosition(numbers, x, y));
     }
 }
 
-
-int[,] RandomDoubleArray(int m, int n)
+//Не удаляйте и не меняйте класс Answer!
+class Answer
 {
-    int[,] array = new int[m, n];
-    for (int i = 0; i < array.GetLength(0); i++)
+    public static void Main(string[] args)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        int[,] array;
+
+        int x, y;
+
+        if (args.Length >= 3)
         {
-            array[i, j] = new Random().Next(10, 100);
-        }
-    }
-    return array;
+            // Предполагается, что строки разделены запятой и пробелом, а элементы внутри строк разделены пробелом
+            string[] rows = args[0].Split(',');
 
-}
+            int rowCount = rows.Length;
+            int colCount = rows[0].Trim().Split(' ').Length;
 
+            array = new int[rowCount, colCount];
 
-//int[,] FindElementByPosition(int[,] array, int x, int y)
-//{
-//    int[,] array = new int[x, y];
-//    for (int i = 0; i < array.GetLength(0); i++)
-//    {
-//        for (int j = 0; j < array.GetLength(1); j++)
-//        {
-//            if(x > 0 && y > 0)
-//            {
-//                array[x, y] == array[x - 1, y - 1];
-//            }
-//            else Console.WriteLine("Неверные координаты.");
-//        }
-//        return array;
-//    }
-
-
-bool ValidatePosition(int[,] array, int x, int y)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (array.GetLength(0) < x && array.GetLength(1) < y)
+            for (int i = 0; i < rowCount; i++)
             {
-                Console.WriteLine("Позиция по рядам и колонкам выходит за пределы массива");
-                Console.WriteLine();
-                return false;
+                string[] rowElements = rows[i].Trim().Split(' ');
+
+                for (int j = 0; j < colCount; j++)
+                {
+                    if (int.TryParse(rowElements[j], out int result))
+                    {
+                        array[i, j] = result;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error parsing element {rowElements[j]} to an integer.");
+                        return;
+                    }
+                }
             }
-            if (array.GetLength(0) < x)
-            {
-                Console.WriteLine("Позиция по рядам выходит за пределы массива");
-                Console.WriteLine();
-                return false;
-            }
-            if (array.GetLength(1) < y)
-            {
-                Console.WriteLine("Позиция по колонкам выходит за пределы массива");
-                Console.WriteLine();
-                return false;
-            }
-            if (x == 0 && y == 0)
-            {
-                Console.WriteLine("Неправильные координаты");
-                Console.WriteLine();
-                return false;
 
+            // Парсинг x и y из аргументов
+            if (int.TryParse(args[1], out x) && int.TryParse(args[2], out y))
+            {
+                // Теперь у вас есть двумерный массив "array" и координаты x и y
+                UserInputToCompileForTest.PrintResult(array, x, y);
+            }
+            else
+            {
+                Console.WriteLine("Error parsing x or y to an integer.");
             }
         }
+        else
+        {
+
+            // Если аргументов на входе нет, используем примерный массив
+            array = new int[,]
+            {
+                {1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 10, 11, 12}
+            };
+            x = 2;
+            y = 2;
+
+            UserInputToCompileForTest.PrintResult(array, x, y);
+
+        }
     }
-    return true;
 }
-
-
-//void PrintResult(int[,] numbers, int x, int y)
-//{
-//    foreach (var item in array)
-//    {
-//        if (item == array[x, y])
-//        {
-//            Console.Write(FindElementByPosition(item));
-//        }
-//    }
-//}
-
-
-
-Console.Clear();
-Console.Write("Введите размерность строк m: ");
-int m = Convert.ToInt32(Console.ReadLine());
-
-Console.Write("Введите размерность столбцов n: ");
-int n = Convert.ToInt32(Console.ReadLine());
-
-int[,] array = RandomDoubleArray(m, n);
-
-PrintArr(array);
-Console.WriteLine();
-
-Console.Write("Введите координату Х: ");
-int x = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату Y: ");
-int y = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
-ValidatePosition(array, x, y);
-
-
-
-
-if (x > 0 && y > 0 && x <= array.GetLength(0) && y <= array.GetLength(1))
-{
-    Console.WriteLine(array[x - 1, y - 1]);
-}
-else Console.WriteLine();
-Console.WriteLine();
-
 
