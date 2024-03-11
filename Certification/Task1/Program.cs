@@ -9,7 +9,7 @@ string PrintNumbers(int number1, int number2)
     {
         return Convert.ToString(number1);
     }
-    return number1 + " " + PrintNumber(number1 + 1, number2);
+    return number1 + " " + PrintNumbers(number1 + 1, number2);
 }
 
 
