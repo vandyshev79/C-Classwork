@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        
+        {
+            "name": "C#: Task1",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\seminar1\\Task1\\Task1.csproj",
+            "launchConfigurationId": "TargetFramework=;Task1"
+        }
+    ]
+}
