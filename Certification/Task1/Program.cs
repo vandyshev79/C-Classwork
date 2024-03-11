@@ -3,7 +3,7 @@
 // Использовать рекурсию, не использовать циклы.
 
 
-string PrintNumber(int number1, int number2)
+string PrintNumbers(int number1, int number2)
 {
     if (number1 == number2)
     {
@@ -20,4 +20,4 @@ int number1 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число N: ");
 int number2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
-Console.Write(PrintNumber(number1, number2));
+Console.Write(PrintNumbers(number1, number2));
