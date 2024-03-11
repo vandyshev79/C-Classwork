@@ -15,7 +15,7 @@ bool IsPalindrome(string str)
 
 Console.Clear();
 
-Console.WriteLine("Введите слово: ");
-string input = Convert.ToString(Console.ReadLine()!);
+//Console.WriteLine("Введите слово: ");
+string input = "кабак";
 bool isPalindrome = IsPalindrome(input);
 Console.WriteLine(isPalindrome ? "Да" : "Нет");
